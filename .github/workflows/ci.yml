@@ -17,10 +17,15 @@ jobs:
         run: |
           npm install
           npm run build
+      - run: |
+          git checkout feat
+          git add /build
+          git commit -m'feat(test)'
+          git push origin feat:feat
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#      - name: Deploy
+#        uses: JamesIves/github-pages-deploy-action@releases/v3
+#        with:
+#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 #          BRANCH: gh-pages
 #          FOLDER: build
